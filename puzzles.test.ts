@@ -4,6 +4,7 @@ import { determineTotalCost } from "./puzzle1.ts";
 import { findTimesWith4Signals } from "./puzzle2.ts";
 import { countValidPasswords } from "./puzzle3.ts";
 import { findTravelTime } from "./puzzle4.ts";
+import { amountOfPoopsInPath } from "./puzzle5.ts";
 
 Deno.test('puzzle1', () => {
   const input = `néztek bele az „ártatlan lapocskába“, mint ahogy belenézetlen mondták ki rá a halálos itéletet a sajtó csupa 20–30 éves birái s egyben hóhérai.
@@ -55,4 +56,22 @@ Departure: America/Toronto                Mar 08, 2020, 04:48
 Arrival:   Europe/London                  Mar 08, 2020, 16:52`
 
   assertEquals(findTravelTime(input), 3143)
+})
+
+Deno.test('puzzle5', () => {
+  const input = ` ⚘   ⚘ 
+  ⸫   ⸫
+🌲   💩  
+     ⸫⸫
+ 🐇    💩
+⸫    ⸫ 
+⚘🌲 ⸫  🌲
+⸫    🐕 
+  ⚘  ⸫ 
+⚘⸫⸫   ⸫
+  ⚘⸫   
+ 💩  ⸫  
+     ⸫⸫`
+
+  assertEquals(amountOfPoopsInPath(input), 2)
 })
